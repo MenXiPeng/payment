@@ -8,4 +8,6 @@ public interface PaymentService {
 
     List<Payment> findAll();
 
+    List<Payment> find(Payment payment);
+
 }

@@ -18,4 +18,9 @@ public class PaymentServiceImpl implements PaymentService {
     public List<Payment> findAll() {
         return this.paymentMapper.selectAll();
     }
+
+    @Override
+    public List<Payment> find(Payment payment) {
+        return paymentMapper.find(payment);
+    }
 }

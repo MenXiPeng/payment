@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface PaymentMapper {
     List<Payment> selectAll();
+
+    List<Payment> find(Payment payment);
 }

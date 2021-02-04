@@ -1,11 +1,15 @@
 package com.mxp.payment.controller;
 
 import com.mxp.cloudapicommon.entity.CommonResult;
+import com.mxp.cloudapicommon.entity.Payment;
 import com.mxp.payment.service.PaymentService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 @RestController
 @RequestMapping("/payment")
 public class PaymentController {
@@ -52,6 +57,17 @@ public class PaymentController {
 
         return this.discoveryClient;
 
+    }
+
+
+    @PostMapping("/info")
+    public CommonResult<List<Payment>> info(@RequestBody Payment payment){
+        var commonResult = new CommonResult<List<Payment>>();
+        var paymentList = paymentService.find(payment);
+        commonResult.setCode(10000);
+        commonResult.setData(paymentList);
+        commonResult.setMessage("success");
+        return commonResult;
     }
 
 
