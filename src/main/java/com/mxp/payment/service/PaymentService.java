@@ -1,6 +1,6 @@
 package com.mxp.payment.service;
 
-import com.mxp.payment.entity.Payment;
+import com.mxp.cloudapicommon.entity.Payment;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.mxp.payment.service.Impl;
 
-import com.mxp.payment.entity.Payment;
+import com.mxp.cloudapicommon.entity.Payment;
 import com.mxp.payment.mapper.PaymentMapper;
 import com.mxp.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
