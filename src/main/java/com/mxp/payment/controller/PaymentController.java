@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Log4j2
 @RestController
@@ -32,7 +33,8 @@ public class PaymentController {
 
 
     @RequestMapping("/getPort")
-    public CommonResult<Map<String,Object>> payment(){
+    public CommonResult<Map<String,Object>> payment() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1);
         CommonResult commonResult = new CommonResult();
         commonResult.setCode(10000);
         commonResult.setMessage("success");
