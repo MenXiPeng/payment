@@ -34,7 +34,6 @@ public class PaymentController {
 
     @RequestMapping("/getPort")
     public CommonResult<Map<String,Object>> payment() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(1);
         CommonResult commonResult = new CommonResult();
         commonResult.setCode(10000);
         commonResult.setMessage("success");
